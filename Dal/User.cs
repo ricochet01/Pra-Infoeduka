@@ -44,6 +44,8 @@ namespace Dal
             return user;
         }
 
+        public string GetSignature() => FirstName + " " + LastName;
+
         public override string ToString()
         {
             return $"{FirstName} {LastName}, user type: {UserType}";

@@ -12,8 +12,8 @@ namespace Infoeduka
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            User admin = new User("admin", "", "admin", "admin", UserType.Admin);
-            admin.SaveToJsonFile();
+            // User admin = new User("admin", "", "admin", "admin", UserType.Admin);
+            // admin.SaveToJsonFile();
 
             List<User> allUsers = new List<User>();
 
@@ -35,8 +35,11 @@ namespace Infoeduka
 
             lblSubjects.Text = s.ToString();
 
-            admin.SaveToJsonFile();
+            user.SaveToJsonFile();
             s.SaveToJsonFile();
+
+            Notification n = new Notification("Hello world!", "lorem ipsum", user.GetSignature(), s.Name);
+            n.SaveToJsonFile();
         }
     }
 }
