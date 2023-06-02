@@ -48,7 +48,23 @@ namespace Dal
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName}, user type: {UserType}";
+            return $"{FirstName} {LastName}";
+        }
+
+        public static List<User> LoadLecturers()
+        {
+            List<User> lecturers = new List<User>();
+
+            string[] files =
+                Directory.GetFiles("users", "*.json", SearchOption.AllDirectories);
+
+            foreach (string file in files)
+            {
+                User user = ReadFromJsonFile(file);
+                if(user.UserType == UserType.Lecturer) lecturers.Add(user);
+            }
+
+            return lecturers;
         }
     }
 }
