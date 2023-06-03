@@ -29,68 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnAdd = new System.Windows.Forms.PictureBox();
-            this.btnFilter = new System.Windows.Forms.PictureBox();
-            this.btnLecturers = new System.Windows.Forms.PictureBox();
-            this.btnSubjects = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.horizontalLine = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFilter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLecturers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSubjects)).BeginInit();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnFilter = new System.Windows.Forms.Button();
+            this.btnLecturers = new System.Windows.Forms.Button();
+            this.btnSubjects = new System.Windows.Forms.Button();
+            this.flpContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(12, 12);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(35, 32);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.TabStop = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            this.btnAdd.MouseEnter += new System.EventHandler(this.uiButton_MouseEnter);
-            this.btnAdd.MouseLeave += new System.EventHandler(this.uiButton_MouseLeave);
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFilter.BackgroundImage")));
-            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFilter.Location = new System.Drawing.Point(93, 12);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(35, 32);
-            this.btnFilter.TabIndex = 1;
-            this.btnFilter.TabStop = false;
-            this.btnFilter.MouseEnter += new System.EventHandler(this.uiButton_MouseEnter);
-            this.btnFilter.MouseLeave += new System.EventHandler(this.uiButton_MouseLeave);
-            // 
-            // btnLecturers
-            // 
-            this.btnLecturers.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLecturers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLecturers.BackgroundImage")));
-            this.btnLecturers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLecturers.Location = new System.Drawing.Point(190, 12);
-            this.btnLecturers.Name = "btnLecturers";
-            this.btnLecturers.Size = new System.Drawing.Size(35, 32);
-            this.btnLecturers.TabIndex = 2;
-            this.btnLecturers.TabStop = false;
-            this.btnLecturers.MouseEnter += new System.EventHandler(this.uiButton_MouseEnter);
-            this.btnLecturers.MouseLeave += new System.EventHandler(this.uiButton_MouseLeave);
-            // 
-            // btnSubjects
-            // 
-            this.btnSubjects.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubjects.BackgroundImage")));
-            this.btnSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSubjects.Location = new System.Drawing.Point(279, 12);
-            this.btnSubjects.Name = "btnSubjects";
-            this.btnSubjects.Size = new System.Drawing.Size(35, 32);
-            this.btnSubjects.TabIndex = 3;
-            this.btnSubjects.TabStop = false;
-            this.btnSubjects.MouseEnter += new System.EventHandler(this.uiButton_MouseEnter);
-            this.btnSubjects.MouseLeave += new System.EventHandler(this.uiButton_MouseLeave);
             // 
             // lblUsername
             // 
@@ -120,40 +67,88 @@
             this.horizontalLine.Size = new System.Drawing.Size(931, 10);
             this.horizontalLine.TabIndex = 6;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdd.Location = new System.Drawing.Point(12, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(32, 32);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFilter.BackgroundImage")));
+            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFilter.Location = new System.Drawing.Point(70, 12);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(32, 32);
+            this.btnFilter.TabIndex = 9;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            // 
+            // btnLecturers
+            // 
+            this.btnLecturers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLecturers.BackgroundImage")));
+            this.btnLecturers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLecturers.Location = new System.Drawing.Point(134, 12);
+            this.btnLecturers.Name = "btnLecturers";
+            this.btnLecturers.Size = new System.Drawing.Size(32, 32);
+            this.btnLecturers.TabIndex = 10;
+            this.btnLecturers.UseVisualStyleBackColor = true;
+            // 
+            // btnSubjects
+            // 
+            this.btnSubjects.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSubjects.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubjects.BackgroundImage")));
+            this.btnSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubjects.Location = new System.Drawing.Point(194, 12);
+            this.btnSubjects.Name = "btnSubjects";
+            this.btnSubjects.Size = new System.Drawing.Size(32, 32);
+            this.btnSubjects.TabIndex = 11;
+            this.btnSubjects.UseVisualStyleBackColor = false;
+            // 
+            // flpContainer
+            // 
+            this.flpContainer.AutoScroll = true;
+            this.flpContainer.Location = new System.Drawing.Point(12, 140);
+            this.flpContainer.Name = "flpContainer";
+            this.flpContainer.Size = new System.Drawing.Size(832, 346);
+            this.flpContainer.TabIndex = 12;
+            this.flpContainer.WrapContents = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.horizontalLine);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblUsername);
+            this.ClientSize = new System.Drawing.Size(856, 498);
+            this.Controls.Add(this.flpContainer);
             this.Controls.Add(this.btnSubjects);
             this.Controls.Add(this.btnLecturers);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.horizontalLine);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUsername);
             this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFilter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLecturers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSubjects)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private PictureBox btnAdd;
-        private PictureBox btnFilter;
-        private PictureBox btnLecturers;
-        private PictureBox btnSubjects;
         private Label lblUsername;
         private Label label1;
         private Label horizontalLine;
+        private Button btnAdd;
+        private Button btnFilter;
+        private Button btnLecturers;
+        private Button btnSubjects;
+        private FlowLayoutPanel flpContainer;
     }
 }

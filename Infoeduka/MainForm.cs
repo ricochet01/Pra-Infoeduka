@@ -47,6 +47,12 @@ namespace Infoeduka
 
             //Notification n = new Notification("Hello world!", "lorem ipsum", user.GetSignature(), s.Name);
             //n.SaveToJsonFile();
+
+            List<Subject> l = Subject.LoadSubjects();
+            foreach (Subject s in l)
+            {
+                flpContainer.Controls.Add(new LecturersScreen(s));
+            }
         }
 
         private void uiButton_MouseEnter(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace Infoeduka
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            SubjectPrompt subjectPopup = new SubjectPrompt("Add new class", null);
+            SubjectPrompt subjectPopup = new SubjectPrompt("Add new subject", null);
             if(subjectPopup.ShowDialog() == DialogResult.OK)
             {
                 Subject newSubject = subjectPopup.GetSubject();

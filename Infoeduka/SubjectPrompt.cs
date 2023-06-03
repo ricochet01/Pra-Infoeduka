@@ -27,6 +27,14 @@ namespace Infoeduka
             {
                 this.data = data;
                 // TODO: Load all input fields with subject data
+                tbSubjectName.Text = data.Name;
+
+                // Removing the added lecturers from the dropdown list
+                data.Lecturers.ForEach(l => {
+                    cbLecturers.Items.Remove(l);
+                    // And then adding them to the list below
+                    lbActiveLecturers.Items.Add(l);
+                });
             }
         }
 

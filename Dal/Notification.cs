@@ -47,5 +47,20 @@ namespace Dal
         {
             return $"{Title}, {Subject}, {Created}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Notification notification &&
+                   Title == notification.Title &&
+                   Message == notification.Message &&
+                   Author == notification.Author &&
+                   Subject == notification.Subject &&
+                   Created == notification.Created;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Title, Message, Author, Subject, Created);
+        }
     }
 }

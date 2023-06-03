@@ -40,9 +40,40 @@ namespace Dal
             return subject;
         }
 
+        public static List<Subject> LoadSubjects()
+        {
+            List<Subject> subjects = new List<Subject>();
+            string[] files =
+                Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);
+
+            foreach (string file in files)
+            {
+                subjects.Add(ReadFromJsonFile(file));
+            }
+
+            return subjects;
+        }
+
+        public void DeleteJsonFile()
+        {
+            File.Delete($"{DIRECTORY_NAME}\\{Name.ToLower()}.json");
+        }
+
         public override string ToString()
         {
             return Name;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Subject subject &&
+                   Name == subject.Name &&
+                   EqualityComparer<List<User>>.Default.Equals(Lecturers, subject.Lecturers);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Lecturers);
         }
     }
 }

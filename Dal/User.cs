@@ -56,7 +56,7 @@ namespace Dal
             List<User> lecturers = new List<User>();
 
             string[] files =
-                Directory.GetFiles("users", "*.json", SearchOption.AllDirectories);
+                Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);
 
             foreach (string file in files)
             {
@@ -65,6 +65,22 @@ namespace Dal
             }
 
             return lecturers;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is User user &&
+                   Id == user.Id &&
+                   FirstName == user.FirstName &&
+                   LastName == user.LastName &&
+                   Email == user.Email &&
+                   Password == user.Password &&
+                   UserType == user.UserType;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, FirstName, LastName, Email, Password, UserType);
         }
     }
 }
