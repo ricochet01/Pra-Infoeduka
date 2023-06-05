@@ -1,6 +1,6 @@
 ﻿namespace Infoeduka
 {
-    partial class LecturersScreen
+    partial class SubjectScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LecturersScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectScreen));
             this.lbSubjectName = new System.Windows.Forms.Label();
             this.flpLecturers = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEdit = new System.Windows.Forms.Button();

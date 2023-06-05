@@ -1,10 +1,12 @@
 using Dal;
+using Infoeduka.Authentication;
 using System.Diagnostics;
 
 namespace Infoeduka
 {
     public partial class MainForm : Form
     {
+        private User currentUser;
         public MainForm()
         {
             InitializeComponent();
@@ -51,8 +53,25 @@ namespace Infoeduka
             List<Subject> l = Subject.LoadSubjects();
             foreach (Subject s in l)
             {
-                flpContainer.Controls.Add(new LecturersScreen(s));
+                flpContainer.Controls.Add(new SubjectScreen(s));
             }
+
+            List<User> users = User.LoadAllUsers();
+
+            // Prompting the user to log in
+            LoginForm login = new LoginForm(users);
+            if(login.ShowDialog() == DialogResult.Cancel)
+            {
+                Close();
+            }
+
+            // If the user's successfully authenticated, we proceed
+            currentUser = login.GetAuthenticatedUser();
+
+            lblUsername.Text = currentUser.ToString();
+            // Moving the label to the left so that the entire text fits
+            int x = Width - lblUsername.Width - 16;
+            lblUsername.Location = new Point(x, lblUsername.Location.Y);
         }
 
         private void uiButton_MouseEnter(object sender, EventArgs e)
@@ -73,6 +92,9 @@ namespace Infoeduka
             if(subjectPopup.ShowDialog() == DialogResult.OK)
             {
                 Subject newSubject = subjectPopup.GetSubject();
+
+                SubjectScreen subjectScreen = new SubjectScreen(newSubject);
+                flpContainer.Controls.Add(subjectScreen);
                 newSubject.SaveToJsonFile();
             }
         }

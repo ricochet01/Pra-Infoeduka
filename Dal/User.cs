@@ -53,7 +53,17 @@ namespace Dal
 
         public static List<User> LoadLecturers()
         {
-            List<User> lecturers = new List<User>();
+            return LoadAllUsers(true);
+        }
+
+        public static List<User> LoadAllUsers()
+        {
+            return LoadAllUsers(false);
+        }
+
+        public static List<User> LoadAllUsers(bool lecturersOnly)
+        {
+            List<User> users = new List<User>();
 
             string[] files =
                 Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);
@@ -61,10 +71,17 @@ namespace Dal
             foreach (string file in files)
             {
                 User user = ReadFromJsonFile(file);
-                if(user.UserType == UserType.Lecturer) lecturers.Add(user);
+                if (lecturersOnly)
+                {
+                    if (user.UserType == UserType.Lecturer) users.Add(user);
+                }
+                else
+                {
+                    users.Add(user);
+                }
             }
 
-            return lecturers;
+            return users;
         }
 
         public override bool Equals(object? obj)

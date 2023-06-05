@@ -28,7 +28,6 @@ namespace Dal
         public void SaveToJsonFile()
         {
             string json = JsonSerializer.Serialize(this);
-
             if (!Directory.Exists(DIRECTORY_NAME)) Directory.CreateDirectory(DIRECTORY_NAME);
 
             string filename = $"{Created.ToString("dd-MM-yyyy-HH-mm-ss")}-{Subject}";

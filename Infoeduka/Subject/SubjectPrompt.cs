@@ -86,5 +86,21 @@ namespace Infoeduka
 
             return s;
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (tbSubjectName.Text.Trim().Length == 0)
+            {
+                MessageBox.Show(
+                    "Subject name is invalid!",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                btnOk.DialogResult = DialogResult.None;
+                return;
+            }
+
+            btnOk.DialogResult = DialogResult.OK;
+        }
     }
 }

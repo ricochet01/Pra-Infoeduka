@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="LecturersScreen.cs">
+    <Compile Update="Authentication\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Authentication\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subject\SubjectScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SubjectPrompt.cs">
+    <Compile Update="Subject\SubjectPrompt.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

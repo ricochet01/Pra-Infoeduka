@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Infoeduka
 {
-    public partial class LecturersScreen : UserControl
+    public partial class SubjectScreen : UserControl
     {
         private Subject subject;
 
-        public LecturersScreen(Subject subject)
+        public SubjectScreen(Subject subject)
         {
             InitializeComponent();
 
