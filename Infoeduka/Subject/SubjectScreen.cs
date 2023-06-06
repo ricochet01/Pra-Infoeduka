@@ -28,7 +28,9 @@ namespace Infoeduka
             // Removing existing labels
             flpLecturers.Controls.Clear();
 
-            lbSubjectName.Text = subject.Name;
+            lbSubjectName.Text = subject.Name.Length > 15
+                ? subject.Name.Substring(0, 15) + "..."
+                : subject.Name;
             subject.Lecturers.ForEach(l => flpLecturers.Controls.Add(new Label
             {
                 Text = l.ToString(),
@@ -45,8 +47,9 @@ namespace Infoeduka
                 subject.DeleteJsonFile();
 
                 subject = prompt.GetSubject();
-                // Editing the data on the user control
+                // Editing the data on user input controls
                 InitData();
+                // Saving the new data to another file
                 subject.SaveToJsonFile();
             }
         }

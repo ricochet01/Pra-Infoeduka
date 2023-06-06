@@ -1,6 +1,6 @@
-﻿namespace Infoeduka
+﻿namespace Infoeduka.Lecturer
 {
-    partial class SubjectScreen
+    partial class LecturerScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectScreen));
-            this.lbSubjectName = new System.Windows.Forms.Label();
-            this.flpLecturers = new System.Windows.Forms.FlowLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LecturerScreen));
+            this.flpContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblLecturerName = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lbSubjectName
+            // flpContainer
             // 
-            this.lbSubjectName.AutoSize = true;
-            this.lbSubjectName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbSubjectName.Location = new System.Drawing.Point(12, 16);
-            this.lbSubjectName.Name = "lbSubjectName";
-            this.lbSubjectName.Size = new System.Drawing.Size(104, 21);
-            this.lbSubjectName.TabIndex = 0;
-            this.lbSubjectName.Text = "Subject name";
+            this.flpContainer.AutoScroll = true;
+            this.flpContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpContainer.Location = new System.Drawing.Point(12, 46);
+            this.flpContainer.Name = "flpContainer";
+            this.flpContainer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.flpContainer.Size = new System.Drawing.Size(226, 101);
+            this.flpContainer.TabIndex = 0;
             // 
-            // flpLecturers
+            // lblLecturerName
             // 
-            this.flpLecturers.AutoScroll = true;
-            this.flpLecturers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpLecturers.Location = new System.Drawing.Point(12, 46);
-            this.flpLecturers.Name = "flpLecturers";
-            this.flpLecturers.Size = new System.Drawing.Size(226, 101);
-            this.flpLecturers.TabIndex = 1;
-            this.flpLecturers.WrapContents = false;
+            this.lblLecturerName.AutoSize = true;
+            this.lblLecturerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLecturerName.Location = new System.Drawing.Point(12, 16);
+            this.lblLecturerName.Name = "lblLecturerName";
+            this.lblLecturerName.Size = new System.Drawing.Size(110, 21);
+            this.lblLecturerName.TabIndex = 1;
+            this.lblLecturerName.Text = "Lecturer name";
             // 
             // btnEdit
             // 
             this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEdit.Location = new System.Drawing.Point(153, 12);
+            this.btnEdit.Location = new System.Drawing.Point(146, 12);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(32, 32);
             this.btnEdit.TabIndex = 2;
@@ -77,17 +77,17 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // SubjectScreen
+            // LecturerScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.flpLecturers);
-            this.Controls.Add(this.lbSubjectName);
-            this.Name = "SubjectScreen";
-            this.Size = new System.Drawing.Size(250, 155);
+            this.Controls.Add(this.lblLecturerName);
+            this.Controls.Add(this.flpContainer);
+            this.Name = "LecturerScreen";
+            this.Size = new System.Drawing.Size(248, 153);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,8 +95,8 @@
 
         #endregion
 
-        private Label lbSubjectName;
-        private FlowLayoutPanel flpLecturers;
+        private FlowLayoutPanel flpContainer;
+        private Label lblLecturerName;
         private Button btnEdit;
         private Button btnDelete;
     }

@@ -9,7 +9,8 @@ namespace Dal
 {
     public class Subject
     {
-        public const string DIRECTORY_NAME = "subjects";
+        public static string DIRECTORY_NAME = 
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @".infoeduka\subjects");
         public string Name { get; set; }
         public List<User> Lecturers { get; set; }
 
@@ -22,6 +23,11 @@ namespace Dal
         public void AddLecturer(User user)
         {
             Lecturers.Add(user);
+        }
+
+        public void RemoveLecturer(User user)
+        {
+            Lecturers.Remove(user);
         }
 
         public void SaveToJsonFile()
@@ -43,6 +49,12 @@ namespace Dal
         public static List<Subject> LoadSubjects()
         {
             List<Subject> subjects = new List<Subject>();
+            if (!Directory.Exists(DIRECTORY_NAME))
+            {
+                Directory.CreateDirectory(DIRECTORY_NAME);
+                return subjects;
+            }
+
             string[] files =
                 Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);
 

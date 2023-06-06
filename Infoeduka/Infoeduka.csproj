@@ -27,4 +27,10 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="users\" />
+    <Folder Include="notifications\" />
+    <Folder Include="subjects\" />
+  </ItemGroup>
+
 </Project>

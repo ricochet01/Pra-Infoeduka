@@ -80,6 +80,7 @@ namespace Infoeduka.Authentication
                 tbEmail.Text = newUser.Email;
                 tbPassword.Text = newUser.Password;
 
+                // Reload the users so that the newly created one appears
                 allUsers = User.LoadAllUsers();
             }
         }

@@ -9,7 +9,8 @@ namespace Dal
 {
     public class Notification
     {
-        public const string DIRECTORY_NAME = "notifications";
+        public static string DIRECTORY_NAME = 
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @".infoeduka\notifications");
         public string Title { get; set; }
         public string Message { get; set; }
         public string Author { get; set; }

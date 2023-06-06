@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblUsername = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCurrentMenu = new System.Windows.Forms.Label();
             this.horizontalLine = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -50,15 +50,15 @@
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "admin";
             // 
-            // label1
+            // lblCurrentMenu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 30);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Subjects";
+            this.lblCurrentMenu.AutoSize = true;
+            this.lblCurrentMenu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrentMenu.Location = new System.Drawing.Point(12, 97);
+            this.lblCurrentMenu.Name = "lblCurrentMenu";
+            this.lblCurrentMenu.Size = new System.Drawing.Size(141, 30);
+            this.lblCurrentMenu.TabIndex = 5;
+            this.lblCurrentMenu.Text = "Current menu";
             // 
             // horizontalLine
             // 
@@ -70,13 +70,14 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
             this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdd.Location = new System.Drawing.Point(70, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(32, 32);
             this.btnAdd.TabIndex = 8;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnFilter
@@ -98,6 +99,7 @@
             this.btnLecturers.Size = new System.Drawing.Size(32, 32);
             this.btnLecturers.TabIndex = 10;
             this.btnLecturers.UseVisualStyleBackColor = true;
+            this.btnLecturers.Click += new System.EventHandler(this.btnLecturers_Click);
             // 
             // btnSubjects
             // 
@@ -109,6 +111,7 @@
             this.btnSubjects.Size = new System.Drawing.Size(32, 32);
             this.btnSubjects.TabIndex = 11;
             this.btnSubjects.UseVisualStyleBackColor = false;
+            this.btnSubjects.Click += new System.EventHandler(this.btnSubjects_Click);
             // 
             // flpContainer
             // 
@@ -127,6 +130,7 @@
             this.btnHome.Size = new System.Drawing.Size(32, 32);
             this.btnHome.TabIndex = 13;
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // MainForm
             // 
@@ -141,7 +145,7 @@
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.horizontalLine);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCurrentMenu);
             this.Controls.Add(this.lblUsername);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -156,7 +160,7 @@
 
         #endregion
         private Label lblUsername;
-        private Label label1;
+        private Label lblCurrentMenu;
         private Label horizontalLine;
         private Button btnAdd;
         private Button btnFilter;

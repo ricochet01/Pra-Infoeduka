@@ -96,11 +96,11 @@ namespace Infoeduka
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                btnOk.DialogResult = DialogResult.None;
+                DialogResult = DialogResult.None;
                 return;
             }
 
-            btnOk.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
         }
     }
 }

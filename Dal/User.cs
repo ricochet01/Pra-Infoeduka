@@ -9,7 +9,8 @@ namespace Dal
 {
     public class User
     {
-        public const string DIRECTORY_NAME = "users";
+        public static string DIRECTORY_NAME = 
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @".infoeduka\users");
 
         public string? Id { get; set; }
         public string? FirstName { get; set; }
@@ -44,6 +45,11 @@ namespace Dal
             return user;
         }
 
+        public void DeleteJsonFile()
+        {
+            File.Delete($"{DIRECTORY_NAME}\\{Id}.json");
+        }
+
         public string GetSignature() => FirstName + " " + LastName;
 
         public override string ToString()
@@ -64,6 +70,17 @@ namespace Dal
         public static List<User> LoadAllUsers(bool lecturersOnly)
         {
             List<User> users = new List<User>();
+
+            if(!Directory.Exists(DIRECTORY_NAME))
+            {
+                Directory.CreateDirectory(DIRECTORY_NAME);
+
+                // Create the admin user if it doesn't exists
+                User admin = new User("admin", "", "admin", "admin", UserType.Admin);
+                admin.SaveToJsonFile();
+
+                return users;
+            }
 
             string[] files =
                 Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);

@@ -7,6 +7,12 @@
     <Compile Update="Authentication\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Lecturer\EditLecturerPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Lecturer\LecturerScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Subject\SubjectScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
