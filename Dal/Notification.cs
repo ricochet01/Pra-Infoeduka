@@ -26,6 +26,11 @@ namespace Dal
             Created = DateTime.Now;
         }
 
+        public string GetFormattedDate()
+        {
+            return Created.ToString("dd. MM. yyyy.");
+        }
+
         public void SaveToJsonFile()
         {
             string json = JsonSerializer.Serialize(this);
@@ -35,12 +40,38 @@ namespace Dal
             File.WriteAllText($"{DIRECTORY_NAME}\\{filename}.json", json);
         }
 
+        public void DeleteJsonFile()
+        {
+            string filename = $"{Created.ToString("dd-MM-yyyy-HH-mm-ss")}-{Subject}";
+            File.Delete($"{DIRECTORY_NAME}\\{filename}.json");
+        }
+
         public static Notification ReadFromJsonFile(string path)
         {
             string json = File.ReadAllText(path);
             Notification? notification = JsonSerializer.Deserialize<Notification>(json);
 
             return notification;
+        }
+
+        public static List<Notification> LoadNotifications()
+        {
+            List<Notification> list = new List<Notification>();
+            if (!Directory.Exists(DIRECTORY_NAME))
+            {
+                Directory.CreateDirectory(DIRECTORY_NAME);
+                return list;
+            }
+
+            string[] files =
+                Directory.GetFiles(DIRECTORY_NAME, "*.json", SearchOption.AllDirectories);
+
+            foreach (string file in files)
+            {
+                list.Add(ReadFromJsonFile(file));
+            }
+
+            return list;
         }
 
         public override string ToString()

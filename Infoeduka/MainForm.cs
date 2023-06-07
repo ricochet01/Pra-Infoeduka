@@ -1,6 +1,8 @@
 using Dal;
 using Infoeduka.Authentication;
 using Infoeduka.Lecturer;
+using Infoeduka.notifications;
+using Infoeduka.Notifications;
 using System.Diagnostics;
 
 namespace Infoeduka
@@ -12,6 +14,8 @@ namespace Infoeduka
         private Color disabledButtonColor = SystemColors.ControlDarkDark;
 
         private User currentUser;
+        private MenuType currentMenu;
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,8 +25,6 @@ namespace Infoeduka
         {
             //Notification n = new Notification("Hello world!", "lorem ipsum", user.GetSignature(), s.Name);
             //n.SaveToJsonFile();
-
-            DisplaySubjects();
 
             List<User> users = User.LoadAllUsers();
 
@@ -36,6 +38,15 @@ namespace Infoeduka
             // If the user's successfully authenticated, we proceed
             currentUser = login.GetAuthenticatedUser();
 
+            DisplayNotifications();
+            ChangeButtonColors(btnHome);
+
+            if (currentUser.UserType != UserType.Admin)
+            {
+                btnLecturers.Hide();
+                btnSubjects.Hide();
+            }
+
             lblUsername.Text = currentUser.ToString();
             // Moving the label to the left so that the entire text fits within bounds
             int x = Width - lblUsername.Width - 16;
@@ -47,6 +58,11 @@ namespace Infoeduka
             lblCurrentMenu.Text = "Notifications";
             flpContainer.Controls.Clear();
 
+            List<Notification> notifications = Notification.LoadNotifications();
+            foreach(Notification n in notifications)
+            {
+                flpContainer.Controls.Add(new NotificationScreen(n, currentUser));
+            }
         }
 
         private void DisplayLecturers()
@@ -75,6 +91,8 @@ namespace Infoeduka
 
         private void ChangeMenu(MenuType menu)
         {
+            currentMenu = menu;
+
             // Disable the add button
             bool shouldDisableAddButton = menu == MenuType.Lecturers;
             btnAdd.Enabled = !shouldDisableAddButton;
@@ -110,15 +128,32 @@ namespace Infoeduka
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            SubjectPrompt subjectPopup = new SubjectPrompt("Add new subject", null);
-            if(subjectPopup.ShowDialog() == DialogResult.OK)
+            if(currentMenu == MenuType.Subjects)
             {
-                Subject newSubject = subjectPopup.GetSubject();
+                SubjectPrompt subjectPopup = new SubjectPrompt("Add new subject", null);
+                if (subjectPopup.ShowDialog() == DialogResult.OK)
+                {
+                    Subject newSubject = subjectPopup.GetSubject();
 
-                SubjectScreen subjectScreen = new SubjectScreen(newSubject);
-                flpContainer.Controls.Add(subjectScreen);
-                newSubject.SaveToJsonFile();
+                    SubjectScreen subjectScreen = new SubjectScreen(newSubject);
+                    flpContainer.Controls.Add(subjectScreen);
+                    newSubject.SaveToJsonFile();
+                }
             }
+            else if(currentMenu == MenuType.Notifications)
+            {
+                NotificationPrompt notificationPopup = 
+                    new NotificationPrompt("Add new notification", null, currentUser);
+                if (notificationPopup.ShowDialog() == DialogResult.OK)
+                {
+                    Notification newNotification = notificationPopup.GetNotification();
+
+                    NotificationScreen notificationScreen = new NotificationScreen(newNotification, currentUser);
+                    flpContainer.Controls.Add(notificationScreen);
+                    newNotification.SaveToJsonFile();
+                }
+            }
+
         }
 
         private void ChangeButtonColors(Button active)

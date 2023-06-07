@@ -44,6 +44,7 @@
             this.flpContainer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flpContainer.Size = new System.Drawing.Size(226, 101);
             this.flpContainer.TabIndex = 0;
+            this.flpContainer.WrapContents = false;
             // 
             // lblLecturerName
             // 

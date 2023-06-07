@@ -7,19 +7,25 @@
     <Compile Update="Authentication\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Lecturer\EditLecturerPrompt.cs">
+    <Compile Update="lecturers\EditLecturerPrompt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Lecturer\LecturerScreen.cs">
+    <Compile Update="lecturers\LecturerScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Subject\SubjectScreen.cs">
+    <Compile Update="Notifications\NotificationPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Notifications\NotificationScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Subjects\SubjectScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Subject\SubjectPrompt.cs">
+    <Compile Update="Subjects\SubjectPrompt.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

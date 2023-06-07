@@ -50,12 +50,20 @@ namespace Dal
             File.Delete($"{DIRECTORY_NAME}\\{Id}.json");
         }
 
-        public string GetSignature() => FirstName + " " + LastName;
-
-        public override string ToString()
+        public List<Subject> GetEnrolledSubjects()
         {
-            return $"{FirstName} {LastName}";
+            List<Subject> subjects = Subject.LoadSubjects();
+            List<Subject> enrolledSubjects = new List<Subject>();
+
+            subjects.ForEach(s =>
+            {
+                if (s.Lecturers.Contains(this)) enrolledSubjects.Add(s);
+            });
+
+            return enrolledSubjects;
         }
+
+        public string GetSignature() => FirstName + " " + LastName;
 
         public static List<User> LoadLecturers()
         {
@@ -67,6 +75,14 @@ namespace Dal
             return LoadAllUsers(false);
         }
 
+        private static User CreateAdminUser()
+        {
+            User admin = new User("Administrator", "", "admin", "admin", UserType.Admin);
+            admin.SaveToJsonFile();
+
+            return admin;
+        }
+
         public static List<User> LoadAllUsers(bool lecturersOnly)
         {
             List<User> users = new List<User>();
@@ -76,8 +92,8 @@ namespace Dal
                 Directory.CreateDirectory(DIRECTORY_NAME);
 
                 // Create the admin user if it doesn't exists
-                User admin = new User("admin", "", "admin", "admin", UserType.Admin);
-                admin.SaveToJsonFile();
+                User admin = CreateAdminUser();
+                users.Add(admin);
 
                 return users;
             }
@@ -98,7 +114,18 @@ namespace Dal
                 }
             }
 
+            if(files.Length == 0)
+            {
+                User admin = CreateAdminUser();
+                users.Add(admin);
+            }
+
             return users;
+        }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
         }
 
         public override bool Equals(object? obj)
