@@ -53,6 +53,9 @@ namespace Dal
         public List<Subject> GetEnrolledSubjects()
         {
             List<Subject> subjects = Subject.LoadSubjects();
+            // Admin can post a notification for any subject
+            if (UserType == UserType.Admin) return subjects;
+
             List<Subject> enrolledSubjects = new List<Subject>();
 
             subjects.ForEach(s =>

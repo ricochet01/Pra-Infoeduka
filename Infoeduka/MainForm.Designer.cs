@@ -38,6 +38,7 @@
             this.btnSubjects = new System.Windows.Forms.Button();
             this.flpContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btnHome = new System.Windows.Forms.Button();
+            this.notificationFilter = new Infoeduka.Notifications.NotificationFilter();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -89,6 +90,7 @@
             this.btnFilter.Size = new System.Drawing.Size(32, 32);
             this.btnFilter.TabIndex = 9;
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnLecturers
             // 
@@ -132,12 +134,21 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // notificationFilter
+            // 
+            this.notificationFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationFilter.Location = new System.Drawing.Point(133, 50);
+            this.notificationFilter.Name = "notificationFilter";
+            this.notificationFilter.Size = new System.Drawing.Size(268, 122);
+            this.notificationFilter.TabIndex = 14;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(812, 498);
+            this.Controls.Add(this.notificationFilter);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.flpContainer);
             this.Controls.Add(this.btnSubjects);
@@ -168,5 +179,6 @@
         private Button btnSubjects;
         private FlowLayoutPanel flpContainer;
         private Button btnHome;
+        private Notifications.NotificationFilter notificationFilter;
     }
 }

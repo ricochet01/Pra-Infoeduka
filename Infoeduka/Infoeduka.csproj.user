@@ -13,6 +13,9 @@
     <Compile Update="lecturers\LecturerScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Notifications\NotificationFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Notifications\NotificationPrompt.cs">
       <SubType>Form</SubType>
     </Compile>

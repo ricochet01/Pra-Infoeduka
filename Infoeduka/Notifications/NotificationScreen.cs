@@ -81,5 +81,10 @@ namespace Infoeduka.Notifications
                 Parent.Controls.Remove(this);
             }
         }
+
+        public Notification GetNotification()
+        {
+            return notification;
+        }
     }
 }

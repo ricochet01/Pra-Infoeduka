@@ -16,6 +16,8 @@ namespace Infoeduka
         private User currentUser;
         private MenuType currentMenu;
 
+        private bool filterVisible = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -51,6 +53,28 @@ namespace Infoeduka
             // Moving the label to the left so that the entire text fits within bounds
             int x = Width - lblUsername.Width - 16;
             lblUsername.Location = new Point(x, lblUsername.Location.Y);
+
+            notificationFilter.Visible = filterVisible;
+            
+        }
+
+        public void FilterNotifications(IDictionary<Subject, bool> checkedSubjects)
+        {
+            List<string> subjectNames = new List<string>();
+            // Populating the subject names list
+
+            foreach(KeyValuePair<Subject, bool> checkedSubject in checkedSubjects)
+            {
+                Subject subject = checkedSubject.Key;
+                if (checkedSubject.Value) subjectNames.Add(subject.Name);
+            }
+
+            foreach (NotificationScreen screen in flpContainer.Controls.OfType<NotificationScreen>())
+            {
+                Notification n = screen.GetNotification();
+
+                screen.Visible = subjectNames.Contains(n.Subject);
+            }
         }
 
         private void DisplayNotifications()
@@ -63,6 +87,8 @@ namespace Infoeduka
             {
                 flpContainer.Controls.Add(new NotificationScreen(n, currentUser));
             }
+
+            FilterNotifications(notificationFilter.GetSelectedSubjects());
         }
 
         private void DisplayLecturers()
@@ -93,12 +119,12 @@ namespace Infoeduka
         {
             currentMenu = menu;
 
-            // Disable the add button
-            bool shouldDisableAddButton = menu == MenuType.Lecturers;
-            btnAdd.Enabled = !shouldDisableAddButton;
+            // Hide the filter when we change the menu
+            filterVisible = false;
+            notificationFilter.Visible = filterVisible;
 
-            if (shouldDisableAddButton) btnAdd.BackColor = disabledButtonColor;
-            else btnAdd.BackColor = buttonColor;
+            // Disable the add button
+            DisableButtons(menu);
 
             switch (menu)
             {
@@ -112,7 +138,25 @@ namespace Infoeduka
                     DisplaySubjects();
                     break;
             }
-        } 
+        }
+
+        private void DisableButtons(MenuType menu)
+        {
+            // First we check if we have to disable the add button
+            bool shouldDisableAddButton = menu == MenuType.Lecturers;
+            btnAdd.Enabled = !shouldDisableAddButton;
+
+            if (shouldDisableAddButton) btnAdd.BackColor = disabledButtonColor;
+            else btnAdd.BackColor = buttonColor;
+
+            // And then, we disable the filter button
+            bool shouldDisableFilterButton = (menu == MenuType.Lecturers) || (menu == MenuType.Subjects);
+            btnFilter.Enabled = !shouldDisableFilterButton;
+
+            if(shouldDisableFilterButton) btnFilter.BackColor = disabledButtonColor;
+            else btnFilter.BackColor = buttonColor;
+
+        }
 
         private void uiButton_MouseEnter(object sender, EventArgs e)
         {
@@ -183,6 +227,14 @@ namespace Infoeduka
         {
             ChangeMenu(MenuType.Notifications);
             ChangeButtonColors(sender as Button);
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            // Filter button is only enabled when the user is at home
+            filterVisible = !filterVisible;
+
+            notificationFilter.Visible = filterVisible;
         }
     }
 }
