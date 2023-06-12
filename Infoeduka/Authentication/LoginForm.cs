@@ -30,7 +30,7 @@ namespace Infoeduka.Authentication
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!authenticated) DialogResult = DialogResult.Cancel;
+            if (!authenticated) DialogResult = DialogResult.Cancel;
         }
 
         private void Authenticate()
@@ -74,7 +74,7 @@ namespace Infoeduka.Authentication
         {
             // And then show the other one
             RegisterForm register = new RegisterForm(allUsers);
-            if(register.ShowDialog() == DialogResult.OK)
+            if (register.ShowDialog() == DialogResult.OK)
             {
                 User newUser = register.GetUser();
                 tbEmail.Text = newUser.Email;
