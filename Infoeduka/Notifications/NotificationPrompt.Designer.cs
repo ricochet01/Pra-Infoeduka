@@ -28,109 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbSubjects = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbTitle = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rtbBody = new System.Windows.Forms.RichTextBox();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            cbSubjects = new ComboBox();
+            label2 = new Label();
+            tbTitle = new TextBox();
+            label3 = new Label();
+            rtbBody = new RichTextBox();
+            btnOk = new Button();
+            btnCancel = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Choose a subject";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Choose a subject";
             // 
             // cbSubjects
             // 
-            this.cbSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSubjects.FormattingEnabled = true;
-            this.cbSubjects.Location = new System.Drawing.Point(12, 37);
-            this.cbSubjects.Name = "cbSubjects";
-            this.cbSubjects.Size = new System.Drawing.Size(361, 23);
-            this.cbSubjects.TabIndex = 1;
+            cbSubjects.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSubjects.FormattingEnabled = true;
+            cbSubjects.Location = new Point(12, 37);
+            cbSubjects.Name = "cbSubjects";
+            cbSubjects.Size = new Size(361, 23);
+            cbSubjects.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Title";
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 77);
+            label2.Name = "label2";
+            label2.Size = new Size(29, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Title";
             // 
             // tbTitle
             // 
-            this.tbTitle.Location = new System.Drawing.Point(12, 105);
-            this.tbTitle.MaxLength = 96;
-            this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(361, 23);
-            this.tbTitle.TabIndex = 3;
+            tbTitle.Location = new Point(12, 95);
+            tbTitle.MaxLength = 96;
+            tbTitle.Name = "tbTitle";
+            tbTitle.Size = new Size(361, 23);
+            tbTitle.TabIndex = 3;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Body";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 159);
+            label3.Name = "label3";
+            label3.Size = new Size(34, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Body";
             // 
             // rtbBody
             // 
-            this.rtbBody.Location = new System.Drawing.Point(12, 177);
-            this.rtbBody.Name = "rtbBody";
-            this.rtbBody.Size = new System.Drawing.Size(361, 194);
-            this.rtbBody.TabIndex = 5;
-            this.rtbBody.Text = "";
+            rtbBody.Location = new Point(12, 177);
+            rtbBody.Name = "rtbBody";
+            rtbBody.Size = new Size(361, 194);
+            rtbBody.TabIndex = 5;
+            rtbBody.Text = "";
             // 
             // btnOk
             // 
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(34, 415);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 6;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            btnOk.DialogResult = DialogResult.OK;
+            btnOk.Location = new Point(34, 415);
+            btnOk.Name = "btnOk";
+            btnOk.Size = new Size(75, 23);
+            btnOk.TabIndex = 6;
+            btnOk.Text = "OK";
+            btnOk.UseVisualStyleBackColor = true;
+            btnOk.Click += btnOk_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(263, 415);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.Location = new Point(263, 415);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 7;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // NotificationPrompt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 450);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.rtbBody);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbTitle);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbSubjects);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "NotificationPrompt";
-            this.Text = "NotificationPrompt";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(385, 450);
+            Controls.Add(btnCancel);
+            Controls.Add(btnOk);
+            Controls.Add(rtbBody);
+            Controls.Add(label3);
+            Controls.Add(tbTitle);
+            Controls.Add(label2);
+            Controls.Add(cbSubjects);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "NotificationPrompt";
+            Text = "NotificationPrompt";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

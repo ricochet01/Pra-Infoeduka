@@ -30,10 +30,10 @@ namespace Infoeduka.notifications
                 rtbBody.Text = notification.Message;
 
                 int index = -1;
-                for(int i = 0; i < availableSubjects.Count; i++)
+                for (int i = 0; i < availableSubjects.Count; i++)
                 {
                     Subject subject = availableSubjects[i];
-                    if(subject.Name == notification.Subject)
+                    if (subject.Name == notification.Subject)
                     {
                         index = i;
                         break;
@@ -52,7 +52,7 @@ namespace Infoeduka.notifications
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(!FormValid())
+            if (!FormValid())
             {
                 MessageBox.Show(
                     "You must fill in all fields!",
